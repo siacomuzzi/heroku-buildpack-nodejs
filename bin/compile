@@ -66,6 +66,7 @@ fi
 
 # Make npm output to STDOUT instead of its default STDERR
 status "Installing dependencies"
+npm config set strict-ssl false
 npm install --production 2>&1 | indent
 
 status "Pruning unused dependencies"
