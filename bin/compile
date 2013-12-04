@@ -67,6 +67,10 @@ fi
 # Make npm output to STDOUT instead of its default STDERR
 status "Set npm strict-ssl: false"
 npm config set strict-ssl false 2>&1 | indent
+status "Cleanup"
+npm cache clean 2>&1 | indent
+rm -rf ~/.npm 2>&1 | indent
+rm -rf node_modules 2>&1 | indent
 status "Installing dependencies"
 npm install --production 2>&1 | indent
 
