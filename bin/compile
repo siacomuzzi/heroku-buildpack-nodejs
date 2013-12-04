@@ -65,8 +65,9 @@ elif test -d $cache_dir/node_modules; then
 fi
 
 # Make npm output to STDOUT instead of its default STDERR
+status "Set npm strict-ssl: false"
+npm config set strict-ssl false 2>&1 | indent
 status "Installing dependencies"
-npm config set strict-ssl false
 npm install --production 2>&1 | indent
 
 status "Pruning unused dependencies"
